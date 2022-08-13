@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool) # True
 
-ALLOWED_HOSTS = ['52.33.178.186', 'qweststore-fashion-env.eba-mded8cg6.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['qweststore-fashion-env.eba-mded8cg6.us-west-2.elasticbeanstalk.com', '*']
 
 
 # Application definition
@@ -168,6 +168,8 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+DEFAULT_FILE_STORAGE = 'qweststore.media_storages.MediaStorage'
 
 # media files configuration
 MEDIA_URL = '/media/'
